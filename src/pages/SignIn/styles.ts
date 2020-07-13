@@ -15,3 +15,33 @@ export const Title = styled.Text`
   font-family: 'RobotoSlab-Medium';
   margin: 64px 0 24px;
 `;
+
+export const ForgotPassword = styled.TouchableOpacity`
+  margin-top: 24px;
+`;
+
+export const ForgotText = styled.Text`
+  color: #f4ede8;
+  font-size: 16px;
+  font-family: 'RobotoSlab-Regular';
+`;
+
+export const CreateAccountButton = styled.TouchableOpacity`
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  padding: 16px 0;
+  background-color: #312e38;
+
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+`;
+
+export const CreateAccountText = styled.Text`
+  color: #ff9000;
+  font-size: 18px;
+  font-family: 'RobotoSlab-Regular';
+  margin-left: 8px;
+`;
