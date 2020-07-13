@@ -1,7 +1,11 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 import Feather from 'react-native-vector-icons/Feather';
 
-export const Container = styled.View`
+interface ContainerProps {
+  isFocused: boolean;
+}
+
+export const Container = styled.View<ContainerProps>`
   width: 100%;
   height: 60px;
   margin-bottom: 8px;
@@ -9,8 +13,16 @@ export const Container = styled.View`
   background: #232129;
   border-radius: 10px;
 
+  border: 2px solid #232129;
+
   flex-direction: row;
   align-items: center;
+
+  ${(props) =>
+    props.isFocused &&
+    css`
+      border-color: #ff9000;
+    `}
 `;
 
 export const TextInput = styled.TextInput`
