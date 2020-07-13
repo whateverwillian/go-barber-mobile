@@ -31,7 +31,7 @@ export const CreateAccountButton = styled.TouchableOpacity`
   right: 0;
   left: 0;
   bottom: 0;
-  padding: 16px 0;
+  padding: 12px 0;
   background-color: #312e38;
 
   justify-content: center;
@@ -41,7 +41,7 @@ export const CreateAccountButton = styled.TouchableOpacity`
 
 export const CreateAccountText = styled.Text`
   color: #ff9000;
-  font-size: 18px;
+  font-size: 16px;
   font-family: 'RobotoSlab-Regular';
   margin-left: 8px;
 `;
