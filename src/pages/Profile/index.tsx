@@ -3,8 +3,8 @@ import { View } from 'react-native';
 
 import './styles';
 
-const AppointmentCreated: React.FC = () => {
+const Profile: React.FC = () => {
   return <View />;
 };
 
-export default AppointmentCreated;
+export default Profile;
