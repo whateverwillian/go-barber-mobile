@@ -72,6 +72,7 @@ const CreateAppointment: React.FC = () => {
 
   const handleSelectProvider = React.useCallback((provider) => {
     setSelectedProvider(provider);
+    setSelectedHour(0);
   }, []);
 
   const navigateBack = React.useCallback(() => {
@@ -98,6 +99,12 @@ const CreateAppointment: React.FC = () => {
   }, []);
 
   const handleCreateAppointment = React.useCallback(async () => {
+    if (!selectedHour)
+      return Alert.alert(
+        'Erro ao criar agendamento',
+        'Por favor, insira um horário para o agendamento',
+      );
+
     try {
       const date = new Date(selectedDate);
 
