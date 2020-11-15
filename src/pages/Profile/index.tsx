@@ -96,8 +96,6 @@ const SignUp: React.FC = () => {
 
         updateUser(response.data);
 
-        Alert.alert('Perfil atualizado com sucesso!');
-
         navigation.navigate('Dashboard');
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
@@ -117,43 +115,35 @@ const SignUp: React.FC = () => {
   );
 
   const handleUpdateAvatar = React.useCallback(() => {
-    try {
-      ImagePicker.showImagePicker(
-        {
-          title: 'Selecione um novo avatar',
-          cancelButtonTitle: 'Cancelar',
-          takePhotoButtonTitle: 'Usar câmera',
-          chooseFromLibraryButtonTitle: 'Escolha um avatar da galeria',
-        },
-        (response) => {
-          if (response.didCancel) {
-            return console.log('did cancel');
-          }
+    ImagePicker.showImagePicker(
+      {
+        title: 'Selecione um novo avatar',
+        cancelButtonTitle: 'Cancelar',
+        takePhotoButtonTitle: 'Usar câmera',
+        chooseFromLibraryButtonTitle: 'Escolha um avatar da galeria',
+      },
+      (response) => {
+        if (response.didCancel) {
+          return console.log('did cancel');
+        }
 
-          if (response.error) {
-            return console.log(response.error);
-          }
+        if (response.error) {
+          return console.log(response.error);
+        }
 
-          const data = new FormData();
+        const data = new FormData();
 
-          data.append('avatar', {
-            type: 'image/jpg',
-            name: `${user.id}.jpg`,
-            uri: response.uri,
-          });
+        data.append('avatar', {
+          type: 'image/jpg',
+          name: `${user.id}.jpg`,
+          uri: response.uri,
+        });
 
-          api
-            .patch('users/avatar', data)
-            .then(({ data: updatedUser }) => {
-              console.log(updatedUser);
-              updateUser(updatedUser);
-            })
-            .catch((err) => console.log(err));
-        },
-      );
-    } catch (err) {
-      console.log(err);
-    }
+        api.patch('users/avatar', data).then(({ data: updatedUser }) => {
+          updateUser(updatedUser);
+        });
+      },
+    );
   }, [updateUser, user.id]);
 
   const handleGoBack = React.useCallback(() => {

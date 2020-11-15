@@ -64,8 +64,6 @@ const SignIn: React.FC = () => {
           email,
           password,
         });
-
-        Alert.alert('Login feito com sucesso', 'Você agora está autenticado.');
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);
