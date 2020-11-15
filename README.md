@@ -57,7 +57,7 @@ Para utilizar o projeto localmente basta seguir os seguintes passos.
 
 Precisamos das seguintes ferramentas.
 * npm
-* Android Studio
+* device para rodar o aplicativo
 
 ### Instalação
 
